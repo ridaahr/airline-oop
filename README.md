@@ -33,7 +33,24 @@ Campos:
 
 Crea readers para todos los beans
 
-### AirlineApp
+### AirlineApp1
+
+
+Tendrá un método run() que realice los siguiente:
+- Pide los datos de la aerolínea
+- Pide al usuario un número de vuelo
+- Busca el vuelo con ese número de vuelo
+    - Si no existe muestra por pantalla un error
+    - Si existe:
+        - Pide al usuario un pasajero.
+        - Busca a ese pasajero dentro del vuelo:
+            - Si existe:
+                - Muestra los datos del pasajero
+                - Pide un número de asiento
+                - Cambia el asiento del pasajeor
+            - Si no existe muestra un mensaje de error
+
+### AirlineAppMenu
 
 Tendrá un método run() que realice los siguiente:
 - Pide los datos de la aerolínea
