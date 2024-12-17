@@ -30,7 +30,6 @@ public class Airline {
     }
 
 
-
 //    public void flightCheck(int flightNumber) {
 //        Scanner scanner = new Scanner(System.in);
 //        var flight = findFlight(flightNumber);
@@ -48,22 +47,23 @@ public class Airline {
 //        }
 //    }
 
-    public void flights() {
-        for (var flight: flights) {
+    public void showFlights() {
+        for (var flight : flights) {
             flight.flightInfo();
         }
     }
 
     public Flight findFlight(int flightNumber) {
-        for (var flight: flights) {
+        for (var flight : flights) {
             if (flight.getFlightNumber() == flightNumber) {
                 return flight;
             }
-        }   return null;
+        }
+        return null;
     }
 
     public void originFlight(String origin) {
-        for (var flight: flights) {
+        for (var flight : flights) {
             if (flight.getOrigin().equals(origin)) {
                 flight.flightInfo();
             }
@@ -71,8 +71,9 @@ public class Airline {
     }
 
     public void passengerFlight(String nif) {
-        for (var flight: flights) {
-            if (flight.nifPassenger(nif) != null) {
+        for (var flight : flights) {
+            var passenger = flight.findPassenger(nif);
+            if (passenger != null) {
                 flight.flightInfo();
             } else {
                 System.out.println("No hay vuelos para este pasajero");
@@ -81,7 +82,7 @@ public class Airline {
     }
 
     public void seatPassenger(Integer flightNumber, String nif) {
-        for (var flight: flights) {
+        for (var flight : flights) {
             if (flight.getFlightNumber() == flightNumber) {
                 var passenger = flight.nifPassenger(nif);
                 if (passenger != null) {
@@ -94,7 +95,7 @@ public class Airline {
     }
 
     public Integer passengerSeat(Integer flightNumber, String nif) {
-        for (var flight: flights) {
+        for (var flight : flights) {
             var passenger = flight.findPassenger(nif);
             if (passenger != null) {
                 return passenger.getSeatNumber();
@@ -118,8 +119,6 @@ public class Airline {
             }
         }
     }
-
-
 
     @Override
     public String toString() {

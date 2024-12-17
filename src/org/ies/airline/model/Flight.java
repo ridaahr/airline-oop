@@ -59,19 +59,21 @@ public class Flight {
     }
 
     public Passenger findPassenger(String nif) {
-        for (var passenger: passengers) {
+        for (var passenger : passengers) {
             if (passenger.getNif().equals(nif)) {
                 return passenger;
             }
-        }   return null;
+        }
+        return null;
     }
 
     public boolean hasPassenger2(String nif) {
-        for (var passenger: passengers) {
+        for (var passenger : passengers) {
             if (passenger.getNif().equals(nif)) {
                 return true;
             }
-        }   return false;
+        }
+        return false;
     }
 
     public void checkPassenger(String nif) {
@@ -85,17 +87,18 @@ public class Flight {
     }
 
     public void seatPassenger(int seatNumber) {
-        for (var passenger: passengers) {
+        for (var passenger : passengers) {
             passenger.setSeatNumber(seatNumber);
         }
     }
 
     public Passenger nifPassenger(String nif) {
-        for (var passenger: passengers) {
+        for (var passenger : passengers) {
             if (passenger.getNif().equals(nif)) {
                 return passenger;
             }
-        } return null;
+        }
+        return null;
     }
 
     public void passengerInfo() {
@@ -106,7 +109,9 @@ public class Flight {
 
     public void flightInfo() {
         System.out.println("Número de vuelo: " + getFlightNumber() + " Origen: " + getOrigin() + " Destino: " + getDestination() + " Puerta de embarque: " + getGateNumber());
-        passengerInfo();
+        for (var passenger : passengers) {
+            passenger.passengerInfo();
+        }
     }
 
     @Override
