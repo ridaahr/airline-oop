@@ -58,7 +58,7 @@ public class Flight {
         this.passengers = passengers;
     }
 
-    public Passenger askPassenger(String nif) {
+    public Passenger findPassenger(String nif) {
         for (var passenger: passengers) {
             if (passenger.getNif().equals(nif)) {
                 return passenger;
@@ -66,8 +66,16 @@ public class Flight {
         }   return null;
     }
 
+    public boolean hasPassenger2(String nif) {
+        for (var passenger: passengers) {
+            if (passenger.getNif().equals(nif)) {
+                return true;
+            }
+        }   return false;
+    }
+
     public void checkPassenger(String nif) {
-        var passenger = askPassenger(nif);
+        var passenger = findPassenger(nif);
 
         if (passenger != null) {
             passengerInfo();
@@ -76,11 +84,31 @@ public class Flight {
         }
     }
 
+    public void seatPassenger(int seatNumber) {
+        for (var passenger: passengers) {
+            passenger.setSeatNumber(seatNumber);
+        }
+    }
+
+    public Passenger nifPassenger(String nif) {
+        for (var passenger: passengers) {
+            if (passenger.getNif().equals(nif)) {
+                return passenger;
+            }
+        } return null;
+    }
+
     public void passengerInfo() {
         for (var passenger : passengers) {
             System.out.println("NIF: " + passenger.getNif() + " .Nombre: " + passenger.getName() + " .Apellidos " + passenger.getSurname() + " .Asiento: " + passenger.getSeatNumber());
         }
     }
+
+    public void flightInfo() {
+        System.out.println("Número de vuelo: " + getFlightNumber() + " Origen: " + getOrigin() + " Destino: " + getDestination() + " Puerta de embarque: " + getGateNumber());
+        passengerInfo();
+    }
+
     @Override
     public String toString() {
         return "Flight{" +

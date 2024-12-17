@@ -29,7 +29,32 @@ public class Airline {
         this.flights = flights;
     }
 
-    public Flight askFlight(int flightNumber) {
+
+
+//    public void flightCheck(int flightNumber) {
+//        Scanner scanner = new Scanner(System.in);
+//        var flight = findFlight(flightNumber);
+//
+//        if (flight == null) {
+//            System.out.println("No existe el vuelo");
+//        } else {
+//            System.out.println("Introduce el nif del pasajero");
+//            var nif = scanner.nextLine();
+//            flight.checkPassenger(nif);
+//            System.out.println("Introduce un asiento");
+//            var seatNumber = scanner.nextInt();
+//            scanner.nextLine();
+//            flight.seatPassenger(seatNumber);
+//        }
+//    }
+
+    public void flights() {
+        for (var flight: flights) {
+            flight.flightInfo();
+        }
+    }
+
+    public Flight findFlight(int flightNumber) {
         for (var flight: flights) {
             if (flight.getFlightNumber() == flightNumber) {
                 return flight;
@@ -37,22 +62,64 @@ public class Airline {
         }   return null;
     }
 
-    public void flightCheck(int flightNumber) {
-        var scanner = new Scanner(System.in):
-        var flight = askFlight(flightNumber);
-
-        if (flight == null) {
-            System.out.println("No existe el vuelo");
-        } else {
-            System.out.println("Introduce el nif del pasajero:");
-            var nif = scanner.nextLine();
-            Flight.checkPassenger(nif);
+    public void originFlight(String origin) {
+        for (var flight: flights) {
+            if (flight.getOrigin().equals(origin)) {
+                flight.flightInfo();
+            }
         }
     }
 
-    public void askPassenger(String nif) {
-        if
+    public void passengerFlight(String nif) {
+        for (var flight: flights) {
+            if (flight.nifPassenger(nif) != null) {
+                flight.flightInfo();
+            } else {
+                System.out.println("No hay vuelos para este pasajero");
+            }
+        }
     }
+
+    public void seatPassenger(Integer flightNumber, String nif) {
+        for (var flight: flights) {
+            if (flight.getFlightNumber() == flightNumber) {
+                var passenger = flight.nifPassenger(nif);
+                if (passenger != null) {
+                    System.out.println("El asiento asignado es: " + passenger.getSeatNumber());
+                }
+            } else {
+                System.out.println("No existen vuelos");
+            }
+        }
+    }
+
+    public Integer passengerSeat(Integer flightNumber, String nif) {
+        for (var flight: flights) {
+            var passenger = flight.findPassenger(nif);
+            if (passenger != null) {
+                return passenger.getSeatNumber();
+            } else {
+                System.out.println("No existe el pasajero");
+            }
+        }
+        return null;
+    }
+
+    public void updateSeatNumber(int flightNumber, String nif, int seatNumber) {
+        var flight = findFlight(flightNumber);
+        if (flight == null) {
+            System.out.println("No existe el vuelo");
+        } else {
+            var passenger = flight.findPassenger(nif);
+            if (passenger == null) {
+                System.out.println("No hay pasajero");
+            } else {
+                passenger.setSeatNumber(seatNumber);
+            }
+        }
+    }
+
+
 
     @Override
     public String toString() {

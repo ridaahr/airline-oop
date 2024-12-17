@@ -21,6 +21,23 @@ public class AirlineApp1 {
         var flightNumber = scanner.nextInt();
         scanner.nextLine();
 
-        Airline.
+        var flight = airline.findFlight(flightNumber);
+        if (flight == null) {
+            System.out.println("No existe el vuelo");
+        } else {
+            System.out.println("Introduce el nif del pasajero");
+            var nif = scanner.nextLine();
+            var passenger = flight.findPassenger(nif);
+            if (passenger == null) {
+                System.out.println("No existe el pasajero");
+            } else {
+                passenger.passengerInfo();
+                System.out.println("Introduce un número de asiento");
+                var seatNumber = scanner.nextInt();
+                scanner.nextLine();
+                passenger.setSeatNumber(seatNumber);
+                passenger.passengerInfo();
+            }
+        }
     }
 }
