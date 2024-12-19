@@ -75,11 +75,8 @@ public class Airline {
 
     public void passengerFlight(String nif) {
         for (var flight : flights) {
-            var passenger = flight.findPassenger(nif);
-            if (passenger != null) {
+            if (flight.hasPassenger(nif)) {
                 flight.flightInfo();
-            } else {
-                System.out.println("No hay vuelos para este pasajero");
             }
         }
     }
