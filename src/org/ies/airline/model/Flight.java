@@ -108,7 +108,7 @@ public class Flight {
 //    }
 
     public void flightInfo() {
-        System.out.println("Número de vuelo: " + getFlightNumber() + " Origen: " + getOrigin() + " Destino: " + getDestination() + " Puerta de embarque: " + getGateNumber());
+        System.out.println("Número de vuelo: " + getFlightNumber() + ". Origen: " + getOrigin() + ". Destino: " + getDestination() + ". Puerta de embarque: " + getGateNumber() + ".");
         for (var passenger : passengers) {
             passenger.passengerInfo();
         }
