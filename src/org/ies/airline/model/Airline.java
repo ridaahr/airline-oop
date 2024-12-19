@@ -81,21 +81,24 @@ public class Airline {
         }
     }
 
-    public void seatPassenger(Integer flightNumber, String nif) {
-        for (var flight : flights) {
-            if (flight.getFlightNumber() == flightNumber) {
-                var passenger = flight.nifPassenger(nif);
-                if (passenger != null) {
-                    System.out.println("El asiento asignado es: " + passenger.getSeatNumber());
-                }
-            } else {
-                System.out.println("No existen vuelos");
-            }
-        }
-    }
+//    public void seatPassenger(Integer flightNumber, String nif) {
+//        for (var flight : flights) {
+//            if (flight.getFlightNumber() == flightNumber) {
+//                var passenger = flight.nifPassenger(nif);
+//                if (passenger != null) {
+//                    System.out.println("El asiento asignado es: " + passenger.getSeatNumber());
+//                }
+//            } else {
+//                System.out.println("No existen vuelos");
+//            }
+//        }
+//    }
 
     public Integer passengerSeat(Integer flightNumber, String nif) {
-        for (var flight : flights) {
+        var flight = findFlight(flightNumber);
+        if (flight == null) {
+            System.out.println("No existe el vuelo");
+        } else {
             var passenger = flight.findPassenger(nif);
             if (passenger != null) {
                 return passenger.getSeatNumber();
@@ -113,7 +116,7 @@ public class Airline {
         } else {
             var passenger = flight.findPassenger(nif);
             if (passenger == null) {
-                System.out.println("No hay pasajero");
+                System.out.println("No existe el pasajero en este vuelo");
             } else {
                 passenger.setSeatNumber(seatNumber);
             }

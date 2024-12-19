@@ -67,45 +67,45 @@ public class Flight {
         return null;
     }
 
-    public boolean hasPassenger2(String nif) {
-        for (var passenger : passengers) {
-            if (passenger.getNif().equals(nif)) {
-                return true;
-            }
-        }
-        return false;
-    }
+//    public boolean hasPassenger2(String nif) {
+//        for (var passenger : passengers) {
+//            if (passenger.getNif().equals(nif)) {
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
+//
+//    public void checkPassenger(String nif) {
+//        var passenger = findPassenger(nif);
+//
+//        if (passenger != null) {
+//            passengerInfo();
+//        } else {
+//            System.out.println("No existe el pasajero");
+//        }
+//    }
+//
+//    public void seatPassenger(int seatNumber) {
+//        for (var passenger : passengers) {
+//            passenger.setSeatNumber(seatNumber);
+//        }
+//    }
+//
+//    public Passenger nifPassenger(String nif) {
+//        for (var passenger : passengers) {
+//            if (passenger.getNif().equals(nif)) {
+//                return passenger;
+//            }
+//        }
+//        return null;
+//    }
 
-    public void checkPassenger(String nif) {
-        var passenger = findPassenger(nif);
-
-        if (passenger != null) {
-            passengerInfo();
-        } else {
-            System.out.println("No existe el pasajero");
-        }
-    }
-
-    public void seatPassenger(int seatNumber) {
-        for (var passenger : passengers) {
-            passenger.setSeatNumber(seatNumber);
-        }
-    }
-
-    public Passenger nifPassenger(String nif) {
-        for (var passenger : passengers) {
-            if (passenger.getNif().equals(nif)) {
-                return passenger;
-            }
-        }
-        return null;
-    }
-
-    public void passengerInfo() {
-        for (var passenger : passengers) {
-            System.out.println("NIF: " + passenger.getNif() + " .Nombre: " + passenger.getName() + " .Apellidos " + passenger.getSurname() + " .Asiento: " + passenger.getSeatNumber());
-        }
-    }
+//    public void passengerInfo() {
+//        for (var passenger : passengers) {
+//            System.out.println("NIF: " + passenger.getNif() + " .Nombre: " + passenger.getName() + " .Apellidos " + passenger.getSurname() + " .Asiento: " + passenger.getSeatNumber());
+//        }
+//    }
 
     public void flightInfo() {
         System.out.println("Número de vuelo: " + getFlightNumber() + " Origen: " + getOrigin() + " Destino: " + getDestination() + " Puerta de embarque: " + getGateNumber());

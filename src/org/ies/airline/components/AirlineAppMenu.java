@@ -27,25 +27,22 @@ public class AirlineAppMenu {
 
             if (option == 1) {
                 airline.showFlights();
-            }
-            else if (option == 2) {
+            } else if (option == 2) {
                 System.out.println("Introduce el origen");
                 var origin = scanner.nextLine();
                 airline.originFlight(origin);
-            }
-            else if (option == 3) {
+            } else if (option == 3) {
                 System.out.println("Introduce el nif");
                 var nif = scanner.nextLine();
                 airline.passengerFlight(nif);
-            }
-            else if (option == 4) {
+            } else if (option == 4) {
                 System.out.println("Introduce el número de vuelo");
                 var flightNumber = scanner.nextInt();
                 scanner.nextLine();
 
                 System.out.println("Introduce el nif");
                 var nif = scanner.nextLine();
-                var seat = airline.passengerSeat(flightNumber, nif);
+
                 var flight = airline.findFlight(flightNumber);
                 if (flight == null) {
                     System.out.println("No existe el vuelo");
@@ -54,11 +51,11 @@ public class AirlineAppMenu {
                     if (passenger == null) {
                         System.out.println("El pasajero no está registrado");
                     } else {
-                        System.out.println("El asiento asignado es: " + passenger.getSeatNumber());
+                        var seat = airline.passengerSeat(flightNumber, nif);
+                        System.out.println("El asiento asignado es: " + seat);
                     }
                 }
-            }
-            else if (option == 5) {
+            } else if (option == 5) {
                 System.out.println("Introduce el número de vuelo");
                 var flightNumber = scanner.nextInt();
                 scanner.nextLine();
