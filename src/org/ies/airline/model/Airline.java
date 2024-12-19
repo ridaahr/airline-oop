@@ -67,6 +67,9 @@ public class Airline {
             if (flight.getOrigin().equals(origin)) {
                 flight.flightInfo();
             }
+            else {
+                System.out.println("No hay vuelos con este origen");
+            }
         }
     }
 

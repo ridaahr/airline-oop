@@ -67,14 +67,14 @@ public class Flight {
         return null;
     }
 
-//    public boolean hasPassenger2(String nif) {
-//        for (var passenger : passengers) {
-//            if (passenger.getNif().equals(nif)) {
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
+    public boolean hasPassenger(String nif) {
+        for (var passenger : passengers) {
+            if (passenger.getNif().equals(nif)) {
+                return true;
+            }
+        }
+        return false;
+    }
 //
 //    public void checkPassenger(String nif) {
 //        var passenger = findPassenger(nif);

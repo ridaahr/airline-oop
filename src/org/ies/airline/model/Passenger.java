@@ -48,7 +48,7 @@ public class Passenger {
     }
 
     public void passengerInfo() {
-        System.out.println("NIF: " + getNif() + " .Nombre: " + getName() + " .Apellidos " + getSurname() + " .Asiento: " + getSeatNumber());
+        System.out.println("NIF: " + getNif() + ". Nombre: " + getName() + ". Apellidos " + getSurname() + ". Asiento: " + getSeatNumber() + ".");
     }
 
     @Override
